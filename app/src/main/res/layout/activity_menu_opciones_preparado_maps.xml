@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuNavegacion"
-    android:background="#1E1E23">
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintArribaOpciones"
@@ -76,7 +76,7 @@
         android:translationZ="@dimen/_100sdp"
 
         app:strokeWidth="@dimen/_1sdp"
-        app:strokeColor="@color/white"
+        app:strokeColor="@color/color_simetria_7"
         app:cardCornerRadius="@dimen/_50sdp"
         app:cardElevation="@dimen/_5sdp"
 
@@ -106,17 +106,20 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardEscaneoImagen"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_28sdp"
+                android:layout_height="@dimen/_28sdp"
                 app:cardCornerRadius="@dimen/_30sdp"
+
+                app:strokeWidth="@dimen/_1sdp"
+                app:strokeColor="@color/color_simetria_7"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
 
-                android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_2sdp"
                 android:layout_marginStart="@dimen/_250sdp">
 
@@ -129,7 +132,7 @@
                         android:id="@+id/imagenAdd"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/scanner_qr2"
+                        android:src="@drawable/barcode3"
 
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -162,7 +165,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Servicios"
-        android:textColor="@color/white"
+        android:textColor="@color/color_simetria_7"
         android:textSize="@dimen/_18sdp"
         android:textStyle="bold"
 
@@ -191,14 +194,15 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:translationZ="@dimen/_100sdp"
 
-            app:strokeColor="#378C3A"
-            app:strokeWidth="@dimen/_2sdp"
+            app:strokeColor="@color/color_simetria_7"
+            app:strokeWidth="@dimen/_1sdp"
 
             app:cardCornerRadius="@dimen/_30sdp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -210,26 +214,57 @@
                     android:id="@+id/imagenDispositiveAdd"
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
-                    android:src="@drawable/dispositive"
+                    android:src="@drawable/dispositivo"
 
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/imagenCalendarAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    android:layout_marginEnd="@dimen/_180sdp" />
+
+                <ImageView
+                    android:id="@+id/imagenCalendarAdd"
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:src="@drawable/calendar"
+
+                    app:layout_constraintTop_toBottomOf="@+id/imagenDispositiveAdd"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+
                     android:layout_marginEnd="@dimen/_180sdp" />
 
                 <TextView
                     android:id="@+id/textoUltimoEscaneoAdd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_9sdp"
-                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_simetria_7"
                     android:fontFamily="@font/montserrat_medium"
 
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textoDiaAdd"
                     app:layout_constraintStart_toEndOf="@+id/imagenDispositiveAdd"
-                    android:layout_marginStart="@dimen/_10sdp"/>
+                    android:layout_marginStart="@dimen/_7sdp"/>
+
+                <TextView
+                    android:id="@+id/textoDiaAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_simetria_7"
+                    android:fontFamily="@font/montserrat_medium"
+
+                    app:layout_constraintTop_toBottomOf="@+id/textoUltimoEscaneoAdd"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imagenCalendarAdd"
+
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_2sdp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -242,19 +277,20 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:translationZ="@dimen/_100sdp"
 
-            app:strokeColor="#378C3A"
+            app:strokeColor="@color/color_simetria_7"
             app:strokeWidth="@dimen/_1sdp"
 
             app:cardCornerRadius="@dimen/_100sdp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradiente_item_add"
+                android:background="@drawable/gradiente_opciones"
                 android:translationZ="20dp">
 
                 <ImageView
@@ -280,8 +316,7 @@
         android:layout_height="wrap_content"
 
         app:layout_constraintTop_toBottomOf="@+id/constraintMenuAdd"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/_8sdp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardEliminarMaps"
@@ -291,14 +326,15 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:translationZ="@dimen/_100sdp"
 
-            app:strokeColor="#DDE94057"
-            app:strokeWidth="@dimen/_2sdp"
+            app:strokeColor="@color/color_simetria_7"
+            app:strokeWidth="@dimen/_1sdp"
 
             app:cardCornerRadius="@dimen/_30sdp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -307,29 +343,60 @@
                 android:translationZ="20dp">
 
                 <ImageView
-                    android:id="@+id/imagenDispositiveEliminar"
+                    android:id="@+id/imagenDispositiveDelete"
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
-                    android:src="@drawable/dispositive"
+                    android:src="@drawable/dispositivo"
 
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/imagenCalendarDelete"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    android:layout_marginEnd="@dimen/_180sdp" />
+
+                <ImageView
+                    android:id="@+id/imagenCalendarDelete"
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:src="@drawable/calendar"
+
+                    app:layout_constraintTop_toBottomOf="@+id/imagenDispositiveDelete"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+
                     android:layout_marginEnd="@dimen/_180sdp" />
 
                 <TextView
                     android:id="@+id/textoUltimoEscaneoDelete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_9sdp"
-                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_simetria_7"
                     android:fontFamily="@font/montserrat_medium"
 
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textoDiaDelete"
+                    app:layout_constraintStart_toEndOf="@+id/imagenDispositiveDelete"
+                    android:layout_marginStart="@dimen/_7sdp"/>
+
+                <TextView
+                    android:id="@+id/textoDiaDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_simetria_7"
+                    android:fontFamily="@font/montserrat_medium"
+
+                    app:layout_constraintTop_toBottomOf="@+id/textoUltimoEscaneoDelete"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imagenDispositiveEliminar"
-                    android:layout_marginStart="@dimen/_10sdp"/>
+                    app:layout_constraintStart_toEndOf="@+id/imagenCalendarDelete"
+
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_2sdp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -343,18 +410,19 @@
             android:translationZ="@dimen/_100sdp"
 
             app:strokeWidth="@dimen/_1sdp"
-            app:strokeColor="#DDE94057"
+            app:strokeColor="@color/color_simetria_7"
 
             app:cardCornerRadius="@dimen/_100sdp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradiente_item_delete"
+                android:background="@drawable/gradiente_opciones"
                 android:translationZ="20dp">
 
                 <ImageView
@@ -380,8 +448,7 @@
         android:layout_height="wrap_content"
 
         app:layout_constraintTop_toBottomOf="@+id/constraintMenuModify"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/_8sdp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardAmpliacionMaps"
@@ -391,14 +458,15 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:translationZ="@dimen/_100sdp"
 
-            app:strokeColor="#7E57C2"
-            app:strokeWidth="@dimen/_2sdp"
+            app:strokeColor="@color/color_simetria_7"
+            app:strokeWidth="@dimen/_1sdp"
 
             app:cardCornerRadius="@dimen/_30sdp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -410,26 +478,57 @@
                     android:id="@+id/imagenDispositiveAmpliacion1"
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
-                    android:src="@drawable/dispositive"
+                    android:src="@drawable/dispositivo"
 
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/imagenCalendarAmpliacion1"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    android:layout_marginEnd="@dimen/_180sdp" />
+
+                <ImageView
+                    android:id="@+id/imagenCalendarAmpliacion1"
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:src="@drawable/calendar"
+
+                    app:layout_constraintTop_toBottomOf="@+id/imagenDispositiveAmpliacion1"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+
                     android:layout_marginEnd="@dimen/_180sdp" />
 
                 <TextView
                     android:id="@+id/textoUltimoEscaneoAmpliacion1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_9sdp"
-                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_simetria_7"
                     android:fontFamily="@font/montserrat_medium"
 
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textoDiaAmpliacion1"
                     app:layout_constraintStart_toEndOf="@+id/imagenDispositiveAmpliacion1"
-                    android:layout_marginStart="@dimen/_10sdp"/>
+                    android:layout_marginStart="@dimen/_7sdp"/>
+
+                <TextView
+                    android:id="@+id/textoDiaAmpliacion1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_simetria_7"
+                    android:fontFamily="@font/montserrat_medium"
+
+                    app:layout_constraintTop_toBottomOf="@+id/textoUltimoEscaneoAmpliacion1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imagenCalendarAmpliacion1"
+
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_2sdp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -443,18 +542,19 @@
             android:translationZ="@dimen/_100sdp"
 
             app:strokeWidth="@dimen/_1sdp"
-            app:strokeColor="#7E57C2"
+            app:strokeColor="@color/color_simetria_7"
 
             app:cardCornerRadius="@dimen/_100sdp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradiente_item_ampliacion1"
+                android:background="@drawable/gradiente_opciones"
                 android:translationZ="20dp">
 
                 <ImageView
@@ -480,8 +580,7 @@
         android:layout_height="wrap_content"
 
         app:layout_constraintTop_toBottomOf="@+id/constraintMenuDelete"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/_8sdp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardModificarMaps"
@@ -491,14 +590,15 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:translationZ="@dimen/_100sdp"
 
-            app:strokeColor="#0092EC"
-            app:strokeWidth="@dimen/_2sdp"
+            app:strokeColor="@color/color_simetria_7"
+            app:strokeWidth="@dimen/_1sdp"
 
             app:cardCornerRadius="@dimen/_30sdp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -510,26 +610,57 @@
                     android:id="@+id/imagenDispositiveModify"
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
-                    android:src="@drawable/dispositive"
+                    android:src="@drawable/dispositivo"
 
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/imagenCalendarModify"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    android:layout_marginEnd="@dimen/_180sdp" />
+
+                <ImageView
+                    android:id="@+id/imagenCalendarModify"
+                    android:layout_width="@dimen/_14sdp"
+                    android:layout_height="@dimen/_14sdp"
+                    android:src="@drawable/calendar"
+
+                    app:layout_constraintTop_toBottomOf="@+id/imagenDispositiveModify"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+
                     android:layout_marginEnd="@dimen/_180sdp" />
 
                 <TextView
                     android:id="@+id/textoUltimoEscaneoModify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_9sdp"
-                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_simetria_7"
                     android:fontFamily="@font/montserrat_medium"
 
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textoDiaModify"
                     app:layout_constraintStart_toEndOf="@+id/imagenDispositiveModify"
-                    android:layout_marginStart="@dimen/_10sdp"/>
+                    android:layout_marginStart="@dimen/_7sdp"/>
+
+                <TextView
+                    android:id="@+id/textoDiaModify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_7sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_simetria_7"
+                    android:fontFamily="@font/montserrat_medium"
+
+                    app:layout_constraintTop_toBottomOf="@+id/textoUltimoEscaneoModify"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imagenCalendarModify"
+
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_2sdp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -543,18 +674,19 @@
             android:translationZ="@dimen/_100sdp"
 
             app:strokeWidth="@dimen/_1sdp"
-            app:strokeColor="#0092EC"
+            app:strokeColor="@color/color_simetria_7"
 
             app:cardCornerRadius="@dimen/_100sdp"
             app:cardElevation="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradiente_item_modify"
+                android:background="@drawable/gradiente_opciones"
                 android:translationZ="20dp">
 
                 <ImageView
@@ -578,8 +710,8 @@
         android:id="@+id/prueba"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_18sdp"
+        android:textColor="@color/color_simetria_7"
+        android:textSize="@dimen/_12sdp"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -587,6 +719,7 @@
 
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:fontFamily="@font/montserrat_medium"/>
 
     <!--

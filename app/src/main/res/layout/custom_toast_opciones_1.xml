@@ -25,14 +25,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#0256a7">
+            android:background="@color/primary">
 
             <TextView
                 android:id="@+id/textoToastOpciones1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="¡Escaneo cancelado!"
+                android:text="¡Escaneo Cancelado!"
                 android:fontFamily="@font/montserrat_medium"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
@@ -46,7 +46,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </com.google.android.material.card.MaterialCardView>
 

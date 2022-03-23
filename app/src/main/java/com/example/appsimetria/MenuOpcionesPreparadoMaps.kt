@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.activity_menu_opciones_preparado_maps.*
 import kotlinx.android.synthetic.main.custom_toast_maps_1.*
 import kotlinx.android.synthetic.main.custom_toast_opciones_1.*
 import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MenuOpcionesPreparadoMaps : AppCompatActivity() {
 
@@ -56,19 +58,19 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         }
 
         cardAltaMaps.setOnClickListener {
-            saveDataAdd(resultScanner)
+            saveDataAdd(resultScanner, getCurrentDate())
             loadAllData()
             val intentMaps = Intent(this, MapsActivity::class.java)
             startActivity(intentMaps)
         }
 
         cardEliminarMaps.setOnClickListener {
-            saveDataDelete(resultScanner)
+            saveDataDelete(resultScanner, getCurrentDate())
             loadAllData()
         }
 
         cardModificarMaps.setOnClickListener {
-            saveDataModify(resultScanner)
+            saveDataModify(resultScanner, getCurrentDate())
             loadAllData()
         }
     }
@@ -102,11 +104,12 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         val integrator = IntentIntegrator(this)
         integrator.setPrompt("ESCANEA EL DISPOSITIVO DESEADO")
         integrator.setTimeout(15000)
+        integrator.setBeepEnabled(false)
         integrator.initiateScan()
     }
 
     @SuppressLint("CommitPrefEdits")
-    private fun saveData(datos : String){
+    private fun saveData(datos: String){
         val sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
@@ -122,27 +125,30 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         textoEscaneoActivo.text = ("DISPOSITIVO EN MEMORIA: $resultScanner")
     }
 
-    private fun saveDataAdd(datos : String){
+    private fun saveDataAdd(datos: String, date: String){
         val sharedPreferences = getSharedPreferences("Add", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
         editor.putString("add", datos)
+        editor.putString("date", date)
         editor.apply()
     }
 
-    private fun saveDataDelete(datos : String){
+    private fun saveDataDelete(datos: String, date: String){
         val sharedPreferences = getSharedPreferences("Delete", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
         editor.putString("delete", datos)
+        editor.putString("date", date)
         editor.apply()
     }
 
-    private fun saveDataModify(datos : String){
+    private fun saveDataModify(datos: String, date: String){
         val sharedPreferences = getSharedPreferences("Modify", Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
         editor.putString("modify", datos)
+        editor.putString("date", date)
         editor.apply()
     }
 
@@ -152,8 +158,13 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         val sharedPreferencesModify = getSharedPreferences("Modify", Context.MODE_PRIVATE)
 
         textoUltimoEscaneoAdd.text = sharedPreferencesAdd.getString("add", null).toString()
+        textoDiaAdd.text = sharedPreferencesAdd.getString("date", null)
+
         textoUltimoEscaneoDelete.text = sharedPreferencesDelete.getString("delete", null).toString()
+        textoDiaDelete.text = sharedPreferencesDelete.getString("date", null)
+
         textoUltimoEscaneoModify.text = sharedPreferencesModify.getString("modify", null).toString()
+        textoDiaModify.text = sharedPreferencesModify.getString("date", null)
     }
 
     private fun loadLatLngData() {
@@ -169,7 +180,7 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_opciones_1, constraintToastOpciones1)
         Toast(this).apply {
             duration = Toast.LENGTH_SHORT
-            setGravity(Gravity.TOP, 0, 0)
+            setGravity(Gravity.BOTTOM, 0, 100)
             view = layoutToast
         }.show()
     }
@@ -181,5 +192,13 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
             setGravity(Gravity.BOTTOM, 0, 200)
             view = layoutToast
         }.show()
+    }
+
+    private fun getCurrentDate(): String {
+        return SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
+    }
+
+    private fun getCurrentTime(): String {
+        return SimpleDateFormat("EEEE, HH:mm", Locale.getDefault()).format(Date())
     }
 }
