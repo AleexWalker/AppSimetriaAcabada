@@ -127,8 +127,8 @@
 
                     <ImageView
                         android:id="@+id/imagenAdd"
-                        android:layout_width="@dimen/_15sdp"
-                        android:layout_height="@dimen/_15sdp"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
                         android:src="@drawable/scanner_qr2"
 
                         app:layout_constraintBottom_toBottomOf="parent"

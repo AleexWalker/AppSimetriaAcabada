@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
+import android.view.*
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +15,9 @@ import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_menu_opciones.imagenAtras
 import kotlinx.android.synthetic.main.activity_menu_opciones.imagenmenu
 import kotlinx.android.synthetic.main.activity_menu_opciones_preparado_maps.*
-import java.util.ArrayList
+import kotlinx.android.synthetic.main.custom_toast_maps_1.*
+import kotlinx.android.synthetic.main.custom_toast_opciones_1.*
+import java.lang.Exception
 
 class MenuOpcionesPreparadoMaps : AppCompatActivity() {
 
@@ -33,17 +37,18 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         }
 
         imagenMenu.setOnClickListener {
-            val popupmenu : PopupMenu = PopupMenu(this, imagenmenu)
-            popupmenu.menuInflater.inflate(R.menu.menu, popupmenu.menu)
-            popupmenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
-                when(item.itemId) {
+            val showPopUp = PopupMenu(this, imagenMenu)
+            showPopUp.menuInflater.inflate(R.menu.menu, showPopUp.menu)
+
+            showPopUp.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
                     R.id.itemMenu1 -> Toast.makeText(this, "Primer Item del Menu", Toast.LENGTH_SHORT).show()
                     R.id.itemMenu2 -> Toast.makeText(this, "Segundo Item del Menu", Toast.LENGTH_SHORT).show()
                     else -> Toast.makeText(this, "Tercer Item del Menu", Toast.LENGTH_SHORT).show()
                 }
                 true
-            })
-            popupmenu.show()
+            }
+            showPopUp.show()
         }
 
         cardEscaneoImagen.setOnClickListener {
@@ -68,6 +73,23 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (result != null) {
+            if (result.contents == null) {
+                toastPersonalizadoOpciones1()
+            } else {
+                Toast.makeText(this, "Dispositivo Escaneado: " + result.contents.substring(0, result.contents.length - 4), Toast.LENGTH_LONG).show()
+                resultScanner = result.contents.substring(0, result.contents.length - 4)
+                saveData(resultScanner)
+                loadData()
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+    }
+
     private fun startFunctions() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.primary)
 
@@ -76,33 +98,11 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         loadLatLngData()
     }
 
-    private fun loadLatLngData() {
-        val sharedPreferences = getSharedPreferences("LatLng", Context.MODE_PRIVATE)
-
-        val latitud : Double = sharedPreferences.getFloat("latitud", 0f).toDouble()
-        val longitud : Double = sharedPreferences.getFloat("longitud", 0f).toDouble()
-        prueba.append(latitud.toString() + "\n")
-        prueba.append(longitud.toString())
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if (result != null) {
-            if (result.contents == null) {
-                Toast.makeText(this, "No se ha podido escanear", Toast.LENGTH_LONG).show()
-            } else {
-                Toast.makeText(this, "Dispositivo Escaneado: " + result.contents.substring(0, result.contents.length - 4), Toast.LENGTH_LONG).show()
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
-        }
-        resultScanner = result.contents.substring(0, result.contents.length - 4)
-        saveData(resultScanner)
-        loadData()
-    }
-
     private fun initScanner(){
-        IntentIntegrator(this).initiateScan()
+        val integrator = IntentIntegrator(this)
+        integrator.setPrompt("ESCANEA EL DISPOSITIVO DESEADO")
+        integrator.setTimeout(15000)
+        integrator.initiateScan()
     }
 
     @SuppressLint("CommitPrefEdits")
@@ -154,5 +154,32 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         textoUltimoEscaneoAdd.text = sharedPreferencesAdd.getString("add", null).toString()
         textoUltimoEscaneoDelete.text = sharedPreferencesDelete.getString("delete", null).toString()
         textoUltimoEscaneoModify.text = sharedPreferencesModify.getString("modify", null).toString()
+    }
+
+    private fun loadLatLngData() {
+        val sharedPreferences = getSharedPreferences("LatLng", Context.MODE_PRIVATE)
+
+        val latitud : Double = sharedPreferences.getFloat("latitud", 0f).toDouble()
+        val longitud : Double = sharedPreferences.getFloat("longitud", 0f).toDouble()
+        prueba.append(latitud.toString() + "\n")
+        prueba.append(longitud.toString())
+    }
+
+    private fun toastPersonalizadoOpciones1() {
+        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_opciones_1, constraintToastOpciones1)
+        Toast(this).apply {
+            duration = Toast.LENGTH_SHORT
+            setGravity(Gravity.TOP, 0, 0)
+            view = layoutToast
+        }.show()
+    }
+
+    private fun toastPersonalizadoOpciones2() {
+        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_maps_1, constraintToastMaps1)
+        Toast(this).apply {
+            duration = Toast.LENGTH_SHORT
+            setGravity(Gravity.BOTTOM, 0, 200)
+            view = layoutToast
+        }.show()
     }
 }

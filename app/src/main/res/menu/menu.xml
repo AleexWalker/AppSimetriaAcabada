@@ -4,16 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/itemMenu1"
+        android:icon="@drawable/satelite"
         android:title="Settings"
-        app:showAsAction="never">
+        app:showAsAction="never"
+        >
     </item>
 
     <item android:id="@+id/itemMenu2"
+        android:icon="@drawable/cross2"
         android:title="Menu 1"
         app:showAsAction="never">
     </item>
 
     <item android:id="@+id/itemMenu3"
+        android:icon="@drawable/common_google_signin_btn_icon_dark"
         android:title="Menu 2"
         app:showAsAction="never">
     </item>
