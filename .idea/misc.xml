@@ -3,16 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout-v28/activity_main.xml" value="0.18819655521783182" />
-        <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout-v28/custom_toast_login_1.xml" value="0.67" />
+        <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout-v28/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout-v28/custom_toast_login_1.xml" value="0.5" />
         <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout-v28/custom_toast_login_2.xml" value="0.75" />
         <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout-v28/custom_toast_register_1.xml" value="0.75" />
         <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout-v28/custom_toast_register_2.xml" value="0.18819655521783182" />
         <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/activity_main.xml" value="0.18819655521783182" />
         <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/activity_maps.xml" value="0.5" />
+        <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/activity_menu_opciones.xml" value="0.18819655521783182" />
+        <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/activity_menu_opciones_preparado_maps.xml" value="0.33" />
         <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/custom_toast_maps_1.xml" value="0.67" />
         <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/item_boton_maps.xml" value="0.18819655521783182" />
-        <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/item_boton_maps_type.xml" value="0.18819655521783182" />
+        <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/item_boton_maps_type.xml" value="0.5" />
         <entry key="..\:/Users/USUARIO/Desktop/AppSimetria-master/app/src/main/res/layout/item_imagen.xml" value="0.18819655521783182" />
       </map>
     </option>

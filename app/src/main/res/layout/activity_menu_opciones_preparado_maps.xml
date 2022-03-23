@@ -68,11 +68,11 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardEscaneo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_32sdp"
         android:layout_marginTop="@dimen/_110sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
         android:translationZ="@dimen/_100sdp"
 
         app:strokeWidth="@dimen/_1sdp"
@@ -106,15 +106,17 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardEscaneoImagen"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="@dimen/_50sdp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                app:cardCornerRadius="@dimen/_30sdp"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/_2sdp"
-                android:layout_marginBottom="@dimen/_2sdp"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_2sdp"
                 android:layout_marginStart="@dimen/_250sdp">
 
@@ -190,7 +192,7 @@
             android:translationZ="@dimen/_100sdp"
 
             app:strokeColor="#378C3A"
-            app:strokeWidth="@dimen/_1sdp"
+            app:strokeWidth="@dimen/_2sdp"
 
             app:cardCornerRadius="@dimen/_30sdp"
             app:cardElevation="8dp"
@@ -201,7 +203,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#9CCC65"
+                android:background="@color/primary"
                 android:translationZ="20dp">
 
                 <ImageView
@@ -290,7 +292,7 @@
             android:translationZ="@dimen/_100sdp"
 
             app:strokeColor="#DDE94057"
-            app:strokeWidth="@dimen/_1sdp"
+            app:strokeWidth="@dimen/_2sdp"
 
             app:cardCornerRadius="@dimen/_30sdp"
             app:cardElevation="8dp"
@@ -301,7 +303,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#E57373"
+                android:background="@color/primary"
                 android:translationZ="20dp">
 
                 <ImageView
@@ -390,7 +392,7 @@
             android:translationZ="@dimen/_100sdp"
 
             app:strokeColor="#7E57C2"
-            app:strokeWidth="@dimen/_1sdp"
+            app:strokeWidth="@dimen/_2sdp"
 
             app:cardCornerRadius="@dimen/_30sdp"
             app:cardElevation="8dp"
@@ -401,7 +403,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#9575CD"
+                android:background="@color/primary"
                 android:translationZ="20dp">
 
                 <ImageView
@@ -490,7 +492,7 @@
             android:translationZ="@dimen/_100sdp"
 
             app:strokeColor="#0092EC"
-            app:strokeWidth="@dimen/_1sdp"
+            app:strokeWidth="@dimen/_2sdp"
 
             app:cardCornerRadius="@dimen/_30sdp"
             app:cardElevation="8dp"
@@ -501,7 +503,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#64B5F6"
+                android:background="@color/primary"
                 android:translationZ="20dp">
 
                 <ImageView

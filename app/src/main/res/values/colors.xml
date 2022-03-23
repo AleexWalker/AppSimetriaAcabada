@@ -14,4 +14,9 @@
     <color name="dashboard_item_5">#66bb6a</color>
 
     <color name="secondary_statusbar">#000000</color>
+
+    <color name="menu_opciones_card_add">#9CCC65</color>
+    <color name="menu_opciones_card_delete">#E57373</color>
+    <color name="menu_opciones_card_modify">#64B5F6</color>
+    <color name="menu_opciones_card_ampliacion">#9575CD</color>
 </resources>
