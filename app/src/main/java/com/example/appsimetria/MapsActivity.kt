@@ -68,7 +68,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         try {
             val succes : Boolean = googleMap.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
-                    this, R.raw.estilomapaestandar))
+                    this, R.raw.estilomapa))
             if (!succes) {
                 Log.e("MapsActivity", "Style pairsing failed")
             }
@@ -170,4 +170,3 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         return true
     }
 }
-
