@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColor
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_toast_login_1.*
 import kotlinx.android.synthetic.main.custom_toast_login_2.*
@@ -14,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.primary_statusbar)
 
         textoRegistrar.setOnClickListener {
             val intentRegister = Intent(this, Register::class.java)

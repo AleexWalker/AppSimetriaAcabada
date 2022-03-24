@@ -12,8 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.zxing.integration.android.IntentIntegrator
-import kotlinx.android.synthetic.main.activity_menu_opciones.imagenAtras
-import kotlinx.android.synthetic.main.activity_menu_opciones.imagenmenu
 import kotlinx.android.synthetic.main.activity_menu_opciones_preparado_maps.*
 import kotlinx.android.synthetic.main.custom_toast_maps_1.*
 import kotlinx.android.synthetic.main.custom_toast_opciones_1.*

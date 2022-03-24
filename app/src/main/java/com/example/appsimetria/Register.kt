@@ -24,7 +24,7 @@ class Register : AppCompatActivity() {
         botonRegister.setOnClickListener {
             if (contraseñaRegister.text.toString() == confirmarContraseñaRegister.text.toString()) {
                 if (validPassword(contraseñaRegister.text.toString())) {
-                    val intentMenu = Intent(this, MenuNavegacion::class.java)
+                    val intentMenu = Intent(this, MenuOpcionesPreparadoMaps::class.java)
                     startActivity(intentMenu)
                 } else {
                     toastPersonalizadoRegister2()
