@@ -21,7 +21,10 @@ import java.util.*
 
 class MenuOpcionesPreparadoMaps : AppCompatActivity() {
 
-    private lateinit var resultScanner : String
+    private lateinit var resultScanner: String
+
+    private var latitud: Double = 0.0
+    private var longitud: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -168,10 +171,19 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
     private fun loadLatLngData() {
         val sharedPreferences = getSharedPreferences("LatLng", Context.MODE_PRIVATE)
 
-        val latitud : Double = sharedPreferences.getFloat("latitud", 0f).toDouble()
-        val longitud : Double = sharedPreferences.getFloat("longitud", 0f).toDouble()
+        latitud = sharedPreferences.getFloat("latitud", 0f).toDouble()
+        longitud = sharedPreferences.getFloat("longitud", 0f).toDouble()
         prueba.append(latitud.toString() + "\n")
         prueba.append(longitud.toString())
+    }
+
+    private fun saveDispositiveLatLng() {
+        val sharedPreferencesDispositive = getSharedPreferences("Dispositive", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferencesDispositive.edit()
+
+        editor.putString("ID", resultScanner)
+        editor.putString("ID", resultScanner)
+        editor.putString("ID", resultScanner)
     }
 
     private fun toastPersonalizadoOpciones1() {

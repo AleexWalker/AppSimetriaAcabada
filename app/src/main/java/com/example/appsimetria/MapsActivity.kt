@@ -31,12 +31,15 @@ import kotlinx.android.synthetic.main.custom_toast_maps_1.*
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnMyLocationButtonClickListener {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var lastLocation : Location
-    private lateinit var fusedLocationClient : FusedLocationProviderClient
+    private lateinit var lastLocation: Location
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var binding: ActivityMapsBinding
 
-    private var latitud : Double = 0.0
-    private var longitud : Double = 0.0
+    private lateinit var arrayLatitudes: ArrayList<String>
+    private lateinit var arrayLongitudes: ArrayList<String>
+
+    private var latitud: Double = 0.0
+    private var longitud: Double = 0.0
 
     companion object {
         private const val LOCATION_REQUEST_CODE = 1
@@ -57,6 +60,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         item_boton_card.setOnClickListener {
+            saveLatLngData(latitud, longitud)
+
             val intentMenu = Intent(this, MenuOpcionesPreparadoMaps::class.java)
             startActivity(intentMenu)
         }
@@ -113,7 +118,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                         .newLatLngZoom(currentLatLong, 18f))
                 latitud = location.latitude
                 longitud = location.longitude
-                saveLatLngData(latitud, longitud)
             }
         }
     }
