@@ -17,4 +17,5 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="desc">contentDescription</string>
+    <string name="title_activity_delete_dispositive_maps">DeleteDispositiveMaps</string>
 </resources>

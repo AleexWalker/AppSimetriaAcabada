@@ -1,4 +1,4 @@
-package com.example.appsimetria
+package com.example.appsimetria.authentication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,15 +7,16 @@ import android.view.Gravity
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColor
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.appsimetria.R
+import com.example.appsimetria.ServicesMenu
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.custom_toast_login_1.*
 import kotlinx.android.synthetic.main.custom_toast_login_2.*
 
-class MainActivity : AppCompatActivity() {
+class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         window.statusBarColor = ContextCompat.getColor(this, R.color.primary_statusbar)
 
         textoRegistrar.setOnClickListener {
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 toastPersonalizadoLogin2()
             } else {
                 if (user.text.toString() == password.text.toString()){
-                    val intentMenu = Intent(this, MenuOpcionesPreparadoMaps::class.java)
+                    val intentMenu = Intent(this, ServicesMenu::class.java)
                     startActivity(intentMenu)
                     overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 } else {

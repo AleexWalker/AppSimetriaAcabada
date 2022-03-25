@@ -5,21 +5,22 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.appsimetria.authentication.Login
+import com.example.appsimetria.maps.DeleteDispositiveMaps
+import com.example.appsimetria.maps.NewDispositiveMaps
 import com.google.zxing.integration.android.IntentIntegrator
-import kotlinx.android.synthetic.main.activity_menu_opciones_preparado_maps.*
+import kotlinx.android.synthetic.main.activity_services_menu.*
 import kotlinx.android.synthetic.main.custom_toast_maps_1.*
 import kotlinx.android.synthetic.main.custom_toast_opciones_1.*
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MenuOpcionesPreparadoMaps : AppCompatActivity() {
+class ServicesMenu : AppCompatActivity() {
 
     private lateinit var resultScanner: String
 
@@ -28,12 +29,12 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_opciones_preparado_maps)
+        setContentView(R.layout.activity_services_menu)
 
         startFunctions()
 
         imagenAtras.setOnClickListener {
-            val intentAtras = Intent(this, MainActivity::class.java)
+            val intentAtras = Intent(this, Login::class.java)
             startActivity(intentAtras)
 
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
@@ -61,13 +62,17 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         cardAltaMaps.setOnClickListener {
             saveDataAdd(resultScanner, getCurrentDate())
             loadAllData()
-            val intentMaps = Intent(this, MapsActivity::class.java)
-            startActivity(intentMaps)
+
+            val intentAddmaps = Intent(this, NewDispositiveMaps::class.java)
+            startActivity(intentAddmaps)
         }
 
         cardEliminarMaps.setOnClickListener {
             saveDataDelete(resultScanner, getCurrentDate())
             loadAllData()
+
+            val intentDeleteMaps = Intent(this, DeleteDispositiveMaps::class.java)
+            startActivity(intentDeleteMaps)
         }
 
         cardModificarMaps.setOnClickListener {
@@ -175,15 +180,6 @@ class MenuOpcionesPreparadoMaps : AppCompatActivity() {
         longitud = sharedPreferences.getFloat("longitud", 0f).toDouble()
         prueba.append(latitud.toString() + "\n")
         prueba.append(longitud.toString())
-    }
-
-    private fun saveDispositiveLatLng() {
-        val sharedPreferencesDispositive = getSharedPreferences("Dispositive", Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = sharedPreferencesDispositive.edit()
-
-        editor.putString("ID", resultScanner)
-        editor.putString("ID", resultScanner)
-        editor.putString("ID", resultScanner)
     }
 
     private fun toastPersonalizadoOpciones1() {

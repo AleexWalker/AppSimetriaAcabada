@@ -1,10 +1,12 @@
-package com.example.appsimetria
+package com.example.appsimetria.authentication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.Toast
+import com.example.appsimetria.R
+import com.example.appsimetria.ServicesMenu
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.custom_toast_register_1.*
 import kotlinx.android.synthetic.main.custom_toast_register_2.*
@@ -15,7 +17,7 @@ class Register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         textoLoginRegister.setOnClickListener {
-            val intentLogIn = Intent(this, MainActivity::class.java)
+            val intentLogIn = Intent(this, Login::class.java)
             startActivity(intentLogIn)
 
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
@@ -24,7 +26,7 @@ class Register : AppCompatActivity() {
         botonRegister.setOnClickListener {
             if (contraseñaRegister.text.toString() == confirmarContraseñaRegister.text.toString()) {
                 if (validPassword(contraseñaRegister.text.toString())) {
-                    val intentMenu = Intent(this, MenuOpcionesPreparadoMaps::class.java)
+                    val intentMenu = Intent(this, ServicesMenu::class.java)
                     startActivity(intentMenu)
                 } else {
                     toastPersonalizadoRegister2()

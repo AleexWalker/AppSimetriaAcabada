@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        tools:context=".MapsActivity"
+        tools:context=".maps.NewDispositiveMaps"
         class="com.google.android.gms.maps.SupportMapFragment"
         map:mapId="@string/map_id"/>
 
@@ -28,17 +28,7 @@
         map:layout_constraintEnd_toEndOf="parent"/>
 
     <include
-        android:id="@+id/item_boton_card"
-        layout="@layout/item_boton_maps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        map:layout_constraintBottom_toTopOf="@+id/item_imagen"
-        map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintEnd_toEndOf="parent"/>
-
-    <include
-        android:id="@+id/item_boton_maps_type"
+        android:id="@+id/item_boton_delete_maps_type"
         layout="@layout/item_boton_maps_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,6 +39,27 @@
         android:layout_marginEnd="@dimen/_4sdp"
         android:layout_marginTop="@dimen/_40sdp"/>
 
+    <TextView
+        android:id="@+id/pruebaText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary_text_and_stroke"
+
+        map:layout_constraintTop_toTopOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginStart="@dimen/_10sdp" />
+
+    <include
+        android:id="@+id/item_boton_delete_maps_back"
+        layout="@layout/item_boton_maps_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
