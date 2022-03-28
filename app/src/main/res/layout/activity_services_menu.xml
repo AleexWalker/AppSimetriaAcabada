@@ -176,9 +176,11 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardEscaneo"
+        app:layout_constraintBottom_toTopOf="@+id/constraintMenuAdd"
+        app:layout_constraintEnd_toEndOf="parent"
 
         android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:fontFamily="@font/montserrat_medium"/>
 
@@ -189,7 +191,24 @@
 
         app:layout_constraintTop_toBottomOf="@+id/textoServicios"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/_8sdp">
+
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/textoServiciosAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Añadir/reubicar dispositivo en memoria"
+            android:textColor="@color/primary_text_and_stroke"
+            android:textSize="@dimen/_7sdp"
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="@id/cardAltaMaps"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/montserrat_medium"/>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardAltaMaps"
@@ -206,7 +225,8 @@
             app:cardElevation="@dimen/_5sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textoServiciosAdd"
+            android:layout_marginTop="@dimen/_2sdp"
             android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -291,7 +311,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="@dimen/_10sdp">
+
+            android:layout_marginTop="@dimen/_2sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -325,6 +346,22 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintMenuAdd"
         app:layout_constraintStart_toStartOf="parent">
 
+        <TextView
+            android:id="@+id/textoServiciosDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eliminar disposivito en memoria/existente"
+            android:textColor="@color/primary_text_and_stroke"
+            android:textSize="@dimen/_7sdp"
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="@id/cardEliminarMaps"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/montserrat_medium"/>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardEliminarMaps"
             android:layout_width="match_parent"
@@ -339,8 +376,9 @@
             app:cardElevation="@dimen/_7sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="@dimen/_10sdp">
+            app:layout_constraintTop_toBottomOf="@+id/textoServiciosDelete"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -424,7 +462,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="@dimen/_10sdp">
+
+            android:layout_marginTop="@dimen/_2sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -458,6 +497,22 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintMenuModify"
         app:layout_constraintStart_toStartOf="parent">
 
+        <TextView
+            android:id="@+id/textoServiciosAmpliacion1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menu 1"
+            android:textColor="@color/primary_text_and_stroke"
+            android:textSize="@dimen/_7sdp"
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="@id/cardAmpliacionMaps"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/montserrat_medium"/>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardAmpliacionMaps"
             android:layout_width="match_parent"
@@ -472,7 +527,7 @@
             app:cardElevation="@dimen/_7sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoServiciosAmpliacion1"
             android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -558,7 +613,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="@dimen/_10sdp">
+
+            android:layout_marginTop="@dimen/_2sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -592,6 +648,22 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintMenuDelete"
         app:layout_constraintStart_toStartOf="parent">
 
+        <TextView
+            android:id="@+id/textoServiciosModify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Modificación de dispositivos"
+            android:textColor="@color/primary_text_and_stroke"
+            android:textSize="@dimen/_7sdp"
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="@id/cardModificarMaps"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/montserrat_medium"/>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardModificarMaps"
             android:layout_width="match_parent"
@@ -606,7 +678,8 @@
             app:cardElevation="@dimen/_7sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textoServiciosModify"
+            android:layout_marginTop="@dimen/_2sdp"
             android:layout_marginBottom="@dimen/_10sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -691,7 +764,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="@dimen/_10sdp">
+
+            android:layout_marginTop="@dimen/_2sdp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

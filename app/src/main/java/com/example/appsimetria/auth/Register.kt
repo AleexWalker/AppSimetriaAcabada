@@ -39,10 +39,10 @@ class Register : AppCompatActivity() {
 
     internal fun validPassword(password : String): Boolean {
         if (password.length <= 5) return false
-        if (password.filter { it.isDigit() }.firstOrNull() == null) return false
-        if (password.filter { it.isLetter() }.filter { it.isUpperCase() }.firstOrNull() == null) return false
-        if (password.filter { it.isLetter() }.filter { it.isLowerCase() }.firstOrNull() == null) return false
-        if (password.filter { it.isLetterOrDigit() }.firstOrNull() == null) return false
+        if (password.firstOrNull { it.isDigit() } == null) return false
+        if (password.filter { it.isLetter() }.firstOrNull { it.isUpperCase() } == null) return false
+        if (password.filter { it.isLetter() }.firstOrNull { it.isLowerCase() } == null) return false
+        if (password.firstOrNull { it.isLetterOrDigit() } == null) return false
 
         return true
     }

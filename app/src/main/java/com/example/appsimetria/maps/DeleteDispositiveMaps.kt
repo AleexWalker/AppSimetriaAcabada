@@ -18,12 +18,10 @@ import com.example.appsimetria.ServicesMenu
 import com.example.appsimetria.databinding.ActivityDeleteDispositiveMapsBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.*
 
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.android.libraries.maps.GoogleMapOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.ktx.firestore
@@ -32,7 +30,7 @@ import kotlinx.android.synthetic.main.activity_delete_dispositive_maps.*
 import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
 import java.lang.Exception
 
-class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnMyLocationButtonClickListener {
+class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMarkerDragListener {
 
     private lateinit var mMap: GoogleMap
     private lateinit var lastLocation: Location
@@ -86,6 +84,7 @@ class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap
 
         mMap.setOnMyLocationButtonClickListener(this)
         mMap.setOnMarkerClickListener(this)
+        mMap.setOnMarkerDragListener(this)
 
         item_boton_delete_maps_type.setOnClickListener {
             if (mMap.mapType == GoogleMap.MAP_TYPE_NORMAL)
@@ -136,6 +135,15 @@ class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap
     }
 
     override fun onMarkerClick(p0: Marker): Boolean {
+        p0.showInfoWindow()
+        return true
+    }
+
+    override fun onMarkerDrag(p0: Marker) {
+        p0.isVisible = false
+    }
+
+    override fun onMarkerDragStart(p0: Marker) {
         baseDatos
             .collection("Dispositivos")
             .document(p0.title.toString())
@@ -146,16 +154,20 @@ class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap
 
         mMap.clear()
         loadDispositivo()
-        return true
+    }
+
+    override fun onMarkerDragEnd(p0: Marker) {
+        p0.isVisible = false
     }
 
     private fun placeMarkerOnMap(title: String, currentLatLong: LatLng) {
-        val markerOptions = MarkerOptions().position(currentLatLong)
-        markerOptions
+        val marker: Marker? = mMap.addMarker(MarkerOptions()
             .title(title)
-            .draggable(false)
-            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-        mMap.addMarker(markerOptions)
+            .flat(false)
+            .position(currentLatLong)
+            .draggable(true)
+            .visible(true))
+        marker!!.showInfoWindow()
     }
 
     @SuppressLint("SetTextI18n")
@@ -191,7 +203,7 @@ class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap
         val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_maps_delete_1, constraintToastMaps1)
         Toast(this).apply {
             duration = Toast.LENGTH_SHORT
-            setGravity(Gravity.TOP, 0, 0)
+            setGravity(Gravity.BOTTOM, 0, 90)
             view = layoutToast
         }.show()
     }

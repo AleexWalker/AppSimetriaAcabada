@@ -28,6 +28,7 @@ import com.google.android.gms.maps.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.protobuf.MapEntryLite
 import kotlinx.android.synthetic.main.activity_new_dispositive_maps.*
 import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
 
@@ -91,6 +92,8 @@ class NewDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.On
         mMap.uiSettings.isZoomControlsEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
         mMap.uiSettings.isIndoorLevelPickerEnabled = true
+        mMap.uiSettings.isIndoorLevelPickerEnabled = true
+        mMap.uiSettings.isMapToolbarEnabled = true
 
         mMap.setOnMarkerDragListener(this)
         mMap.setOnMyLocationButtonClickListener(this)
@@ -131,7 +134,7 @@ class NewDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.On
             if (location != null) {
                 lastLocation = location
                 val currentLatLong = LatLng(location.latitude, location.longitude)
-                placeMarkerOnMap(currentLatLong)
+                placeMarkerOnMap(resultScanner, currentLatLong)
 
                 mMap
                     .animateCamera(CameraUpdateFactory
@@ -151,13 +154,13 @@ class NewDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.On
 
     override fun onMarkerClick(p0: Marker) = false
 
-    private fun placeMarkerOnMap(currentLatLong: LatLng) {
-        val markerOptions = MarkerOptions().position(currentLatLong)
-        markerOptions
-            .title("$resultScanner $currentLatLong")
-            .draggable(true)
-            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-        mMap.addMarker(markerOptions)
+    private fun placeMarkerOnMap(title: String, currentLatLong: LatLng) {
+        val marker: Marker? = mMap.addMarker(MarkerOptions()
+            .title(title)
+            .flat(false)
+            .position(currentLatLong)
+            .draggable(true))
+        marker!!.showInfoWindow()
     }
 
     override fun onMarkerDrag(p0: Marker) {
@@ -190,7 +193,7 @@ class NewDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.On
         val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_maps_add_1, constraintToastMaps1)
         Toast(this).apply {
             duration = Toast.LENGTH_SHORT
-            setGravity(Gravity.TOP, 0, 0)
+            setGravity(Gravity.TOP, 0, 20)
             view = layoutToast
         }.show()
     }
