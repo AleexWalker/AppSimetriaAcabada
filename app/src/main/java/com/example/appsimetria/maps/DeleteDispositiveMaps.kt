@@ -10,6 +10,7 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.appsimetria.R
@@ -28,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_delete_dispositive_maps.*
+import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
 import java.lang.Exception
 
 class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnMyLocationButtonClickListener {
@@ -138,7 +140,8 @@ class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap
             .collection("Dispositivos")
             .document(p0.title.toString())
             .delete()
-            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!")
+                toastPersonalizadoDeleteMaps1()}
             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
 
         mMap.clear()
@@ -182,5 +185,14 @@ class DeleteDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap
             .addOnFailureListener {
                 e -> Log.e(TAG, "Error writing the document", e)
             }
+    }
+
+    private fun toastPersonalizadoDeleteMaps1() {
+        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_maps_delete_1, constraintToastMaps1)
+        Toast(this).apply {
+            duration = Toast.LENGTH_SHORT
+            setGravity(Gravity.TOP, 0, 0)
+            view = layoutToast
+        }.show()
     }
 }

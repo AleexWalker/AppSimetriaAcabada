@@ -10,12 +10,12 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.appsimetria.authentication.Login
+import com.example.appsimetria.auth.Login
 import com.example.appsimetria.maps.DeleteDispositiveMaps
 import com.example.appsimetria.maps.NewDispositiveMaps
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_services_menu.*
-import kotlinx.android.synthetic.main.custom_toast_maps_1.*
+import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
 import kotlinx.android.synthetic.main.custom_toast_opciones_1.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -192,7 +192,7 @@ class ServicesMenu : AppCompatActivity() {
     }
 
     private fun toastPersonalizadoOpciones2() {
-        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_maps_1, constraintToastMaps1)
+        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_opciones_2, constraintToastMaps1)
         Toast(this).apply {
             duration = Toast.LENGTH_SHORT
             setGravity(Gravity.BOTTOM, 0, 200)

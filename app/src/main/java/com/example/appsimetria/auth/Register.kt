@@ -1,4 +1,4 @@
-package com.example.appsimetria.authentication
+package com.example.appsimetria.auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

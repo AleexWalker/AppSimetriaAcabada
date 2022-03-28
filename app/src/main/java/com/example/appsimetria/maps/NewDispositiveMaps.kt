@@ -14,7 +14,6 @@ import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.example.appsimetria.ServicesMenu
 import com.example.appsimetria.R
 
@@ -30,7 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_new_dispositive_maps.*
-import kotlinx.android.synthetic.main.custom_toast_maps_1.*
+import kotlinx.android.synthetic.main.custom_toast_maps_add_1.*
 
 class NewDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, GoogleMap.OnMyLocationButtonClickListener {
 
@@ -174,7 +173,7 @@ class NewDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.On
     }
 
     override fun onMarkerDragStart(p0: Marker) {
-        Toast.makeText(this, "Lo has arrastrado a: (${p0.position.latitude},${p0.position.longitude}) ", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Arrastrado desde: (${p0.position.latitude},${p0.position.longitude}) ", Toast.LENGTH_LONG).show()
         return
     }
 
@@ -188,7 +187,7 @@ class NewDispositiveMaps : AppCompatActivity(), OnMapReadyCallback, GoogleMap.On
     }
 
     private fun toastPersonalizadoMaps1() {
-        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_maps_1, constraintToastMaps1)
+        val layoutToast =  layoutInflater.inflate(R.layout.custom_toast_maps_add_1, constraintToastMaps1)
         Toast(this).apply {
             duration = Toast.LENGTH_SHORT
             setGravity(Gravity.TOP, 0, 0)
